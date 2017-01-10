@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>压缩图片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<style>
+	*{padding:0; margin:0;}
+	.wrap{max-width:640px; margin:0 auto;}
+	.filebox{position: relative; margin:0 4%; margin-top: 60px; height:40px; border:1px solid #EF8383; background-color: #FFF5F5; color:#E82020; line-height: 40px; text-align: center;}
+	.filebox input{position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0;}
+	.showpic{max-width:640px; height:200px; margin:10px 4%; border:1px solid #d9d9d9; background-repeat:no-repeat; background-position:50% 50%; background-size:cover;}
+	</style>
+	<script src="exif.js"></script>
+</head>
+<body>
+<div class="wrap">
+	<div class="filebox">上传图片
+		<input type="file" onchange="upimgfile(this)">
+	</div>
+	<div class="showpic" id="showpic"></div>
+</div>
+
+<script>
+// 此文件为dumpling修改后封装
+// 此函数仅可用于H5,移动端。
+// 上传图片前先压缩图片到指定宽高，提升上传效率和速度减轻服务器负担
+// 阻止IOS上传图片被旋转
+function upimgfile(el){
+	selectFileImage(el,{
+		width:600, //压缩宽度
+		height:900, //压缩高度
+		success:function(base){
+            //压缩成功后调用方法,可在此处调用ajax把base传到服务器
+            document.getElementById('showpic').style.backgroundImage='url('+base+')';
+        },
+        error:function(msg){
+        	// 只能上传jpg,jpeg,png格式
+            alert(msg);
+        }
+	})
+}
+</script>
+</body>
+</html>
