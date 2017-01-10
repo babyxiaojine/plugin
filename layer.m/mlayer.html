@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<script src="layer.js"></script>
+
+<style>
+*{margin:0; padding:0;}
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width:320px; 
+    max-width:640px;
+    margin:0 auto;
+}
+body {
+    background: #fff;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+}
+.layer-demo a{display: block; margin:15px auto 0; border:0; background-color: #fff; width: 80%; height: 40px; line-height: 40px; border:1px solid #c9c9c9; text-align: center; border-radius:4px;}
+
+</style>
+</head>
+<body>
+<script>
+  //  layer.open({
+  //   content: '移动版和PC版不能同时存在同一页面'
+  //   ,btn: '我知道了'
+  // });
+  // layer.open({
+  //   title:'22',
+  //   content: '您确定要刷新一下本页面吗？'
+  //   ,btn: ['刷新', '不要'],
+  //   skin:'confirm',
+  //   no:function(){
+  //     alert(2)
+  //   }
+  //   ,yes: function(index){
+  //     // location.reload();
+  //     layer.close(index);
+  //   }
+  // });
+
+  //底部对话框
+  // layer.open({
+  //   content: '这是一个底部弹出的询问提示'
+  //   ,btn: ['删除', '取消']
+  //   ,skin: 'footer'
+  //   ,yes: function(index){
+  //     layer.open({content: '执行删除操作'})
+  //   }
+  // });
+
+  //底部提示
+  // layer.open({
+  //   content: '一个没有任何按钮的底部提示'
+  //   ,skin: 'footer'
+  // });
+
+  //自定义标题风格
+  // layer.open({
+  //   title: [
+  //     '我是标题',
+  //     'background-color: #FF4351; color:#fff;'
+  //   ]
+  //   ,content: '标题风格任你定义。'
+  // });
+
+  //页面层
+  // layer.open({
+  //   type: 1
+  //   ,content: '可传入任何内容，支持html。一般用于手机页面中'
+  //   ,anim: 'up'
+  //   ,style: 'position:fixed; bottom:0; left:0; width: 100%; height: 200px; padding:10px 0; border:none;'
+  // });
+  
+
+
+    // layer.msg('<span>333</span>',{time:30})
+
+  // var lo=layer.open({
+  //   title: [
+  //     '我是标题',
+  //   ],
+  //   skin:'alert',
+  //   content: '标题风格任你定义。'
+  // });
+// layer.confirm('<span>333</span>')
+
+//页面层
+
+</script>
+<div class="layer-demo">
+  <a id="btn1" onclick="">显示信息框 --- layer.msg</a>
+  <a id="btn2" onclick="">显示弹出框 --- layer.alert</a>
+  <a id="btn3" onclick="">显示对话框 --- layer.confirm</a>
+</div>
+<script>
+  function g(o){
+    return document.getElementById(o);
+  }
+  g('btn1').onclick=function(){
+    layer.msg('22',{time:3})
+  }
+  g('btn2').onclick=function(){
+    layer.alert('信息',{title:['信息']})
+  }
+  g('btn3').onclick=function(){
+    layer.confirm('你确定？',{
+      title:['对话框'],
+      yes:function(){
+        layer.msg('好',{time:2})
+      },
+      no:function(){
+        layer.msg('不',{time:2})
+      }
+    })
+  }
+</script>
+ 
+</body>
+</html>
